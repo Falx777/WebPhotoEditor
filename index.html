@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Luiz Filipe">
+    <link rel="icon" href="img/PhotoEditor.png" type="image/icon type">
+    <link rel="stylesheet" href="css/style.css">
+    <title>WebPhotoEditor2</title>
+    <script src="js/script2.js"></script>
+</head>
+<body onload="draw()">
+        <a id="download"  onclick="openDialog('downloadImg')">Download</a>
+
+    <section class="main">
+            <!--ferramentas laterais esquerda-->
+        <dialog id="dialog">
+        </dialog>
+        <aside class="leftContainer">
+            <div class="dialogNewImage" onclick="openDialog('newImage')">V</div>
+            <div>
+                <img id="move" src="img/icon1.png" alt="" name="move" onclick="activeFunction(this)">
+            </div >
+            <div>
+                <img id="paint" src="img/icon4.png" alt="" name="paint" onclick="activeFunction(this)">
+            </div>
+            <div>
+                <img id="text" src="img/icon5.png" alt="" name="text" onclick="activeFunction(this)">
+            </div>
+        </aside>
+        <!--Campo de imagem-->
+            <fieldset class="imageContainer" id="imageContainer">
+                <canvas id='mainImg' class='mainImg' width='0' height='0'> </canvas>
+                <div id="inserts">
+                    <input name="image" type="url" id="insertFile" accept=".jpg, .png, .jpeg" placeholder="Inserir URL Imagem" required>
+                    <button class="btnImage" onclick="submitImg('insertFile')">Carregar</button>
+                </div>
+            </fieldset>
+
+        <!--ferramentas laterais direita-->
+        <aside class="rightContainer">
+            <details class="filters">
+                <summary>Ajustes</summary>
+                <section>
+                    <div>
+                        <h2 class="titles">Saturação</h2>
+                        <input class="filters_" type="range" name="sat" id="" max="100" min="0" value="0" onclick="modifyImg(this)" list="default1">
+                        <datalist id="default1">
+                            <option value="0" label="0%">0</option>
+                        </datalist>
+                    </div>
+                    <div>
+                        <h2 class="titles">Brilho</h2>
+                        <input class="filters_" type="range" name="brig" id="" max="200" min="1" value="100" onclick="modifyImg(this)" list="default3">
+                        <datalist id="default3">
+                            <option value="100" label="100">100</option>
+                        </datalist>
+                    </div>
+                    <div>
+                        <h2 class="titles">Contraste</h2>
+                        <input class="filters_" type="range" name="cont" id="" max="300" min="1" value="100" onclick="modifyImg(this)" list="default4">
+                        <datalist id="default4">
+                            <option value="100" label="100">100</option>
+                        </datalist>
+                    </div>
+                    <div>
+                        <h2 class="titles">HUE</h2>
+                        <input class="filters_" type="range" name="hue" id="" max="360" min="-360" value="0" onclick="modifyImg(this)" list="default5">
+                        <datalist id="default5">
+                            <option value="0" label="50%">0</option>
+                        </datalist>
+                    </div>
+                    <div>
+                        <h2 class="titles">Opacidade</h2>
+                        <input class="filters_" type="range" name="opa" id="" max="100" min="0" value="100" onclick="modifyImg(this)" list="default6">
+                        <datalist id="default6">
+                            <option value="100" label="100">100</option>
+                        </datalist>
+                    </div>
+                </section>
+            </details>
+            <details class="filters">
+                <summary>Filtros</summary>
+                <section class="persFilters" dir="rtl">
+                    <aside class="persFilters" >
+                        <div>
+                            <button class="" type="button" name="inv" onclick="modifyImg(this)" >Inverter</button>
+                        </div>
+                        <div>
+                            <button class="" type="button" name="sep" onclick="modifyImg(this)" >Sepia</button>
+                        </div>
+                    </aside>
+                    <aside class="persFilters" >
+                        <div>
+                            <button class="" type="button" name="cyber" onclick="modifyImg(this)" >Cyberpunk</button>
+                        </div>
+                        <div>
+                            <button class="" type="button" name="pb" onclick="modifyImg(this)" >Pre/Bra</button>
+                        </div>
+                    </aside>
+                </section>
+            </details>
+            <details class="filters">
+                <summary>Mascara de cor</summary>
+                <section class="persFilters">
+                    <aside class="persFilters" dir="rlt">
+                        <input type="color" name="color" id="color" oninput="maskImg(1)">
+                        <div>
+                            <button class="" type="button" onclick="hasMask=false;context.globalAlpha = 1" >RESET</button>
+                        </div>
+                    </aside>
+                </section>
+            </details>
+            <details class="filters">
+                <summary>Pincel</summary>
+                <section class="persFilters">
+                    <aside class="persFilters" dir="rlt">
+                            <input type="color" name="colorPaint" id="colorPaint" oninput="modifyPaint(this)">                            
+                    </aside>
+                    <aside dir="rtl">
+                        <h2 class="titles">Tamanho</h2>
+                        <input type="range" name="sizePaint" id="" max="30" min="1" value="5" onclick="modifyPaint(this)">
+                    </aside>
+                </section>
+            </details>
+            <details class="filters">
+                <summary>Texto</summary>
+                <section class="persFilters">
+                    <aside class="persFilters" dir="rlt">
+                            <input type="color" name="colorText" id="colorPaint" oninput="modifyText(this)">                            
+                    </aside>
+                    <aside dir="rtl">
+                        <h2 class="titles">Tamanho</h2>
+                        <input type="range" name="sizeText" id="" max="50" min="10" value="18" onclick="modifyText(this)"><br><br>
+                        <lable class="fontStyles"><strong>Estilo de Fonte</strong><br></label>
+                            <select id="fontStyles" name="fontStyles" class="fontStyles" onclick="modifyText(this)">
+                                <option value="Serif" style="font-family: Serif;">Serif</option>
+                                <option value="Sans-serif" style="font-family: Sans-serif;">Sans-serif</option>
+                                <option value="Monospace" style="font-family:Monospace ;">Monospace</option>
+                                <option value="Cursive" style="font-family: Cursive;">Cursive</option>
+                                <option value="Fantasy" style="font-family: Fantasy;">Fantasy</option>
+                            </select>
+                    </aside>
+                    
+                </section>
+            </details>
+        </aside>
+    </section>
+    <div id="textFieldContainer"></div>
+    <canvas id="downImg" class="downImg" width="0" height="0"> </canvas>
+    
+</body>
+</html>

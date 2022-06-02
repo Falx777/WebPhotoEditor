@@ -1,0 +1,362 @@
+html{
+    overflow-y: hidden;
+    overflow-x: hidden;
+}
+
+body{
+    background-color: rgb(116, 114, 114);    
+}
+
+dialog{
+    z-index: 99999;
+}
+
+.main{
+    position: absolute;
+    display: flex;
+    top: 0%;
+    left:0%;
+}
+
+.newImage{
+    position: fixed;
+    top:10px;
+    left: -960px;
+    width: 230px;
+    height: 175px;
+    background-color: rgb(129, 129, 129);
+    border-radius: 15px;
+    border-width: 4px;
+    border-style: outset;
+    border-color: rgb(51, 51, 51);
+}
+
+.newImage h1{
+    margin:0%;
+    margin-bottom: -50px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: rgb(255, 255, 255);
+}
+
+/*campo de Imagem*/
+
+fieldset.imageContainer{
+    width: 965px;
+    height: 540px;
+    display: flex;
+    margin-inline: 7px;
+    background-color: rgb(63, 63, 63);
+    border-color: rgb(129, 129, 129);
+    box-shadow: 5px 5px 5px rgb(51, 51, 51);
+}
+
+.imageContainer div{
+    display: block;
+}
+
+input[type='url']{
+    width: 170px;
+    height: 50px;
+    margin: 70px 70px 5px 70px;
+    padding-inline: 6px;
+    color: white;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 20px;
+    background-color: rgb(43, 43, 43);
+    border-style: outset;
+    border-color: white;
+    border-width: 2px;
+    border-radius: 12px;
+    outline: none;
+    cursor: pointer;
+    transition: all 0.5s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.newImage input[type='url']{
+    margin: 70px 0px 5px 0px;
+}
+
+.newImage .btnImage{
+    margin: 10px 0px 5px 0px;
+}
+
+.btnImage{
+    width: 170px;
+    height: 50px;
+    margin: 10px 70px 70px 70px;
+    padding-inline: 6px;
+    color: white;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 20px;
+    background-color: rgb(43, 43, 43);
+    border-style: outset;
+    border-color: white;
+    border-width: 2px;
+    border-radius: 12px;
+    outline: none;
+    cursor: pointer;
+    transition: all 0.5s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.5s;
+}
+
+.btnImage:hover{
+    background-color: #818181;
+}
+/*campo da esquerda*/
+
+.dialogNewImage{
+    width: 100%;
+    height: 20px;
+    box-shadow: -5px 3px 10px black;
+    margin-bottom: 15px;
+    font-size: 20px;
+    cursor: pointer;
+    transition: all 0.5s;
+}
+
+.downloadImageDialog{
+    position: fixed;
+    top:90px;
+    left: -270px;
+    width: 470px;
+    height: 175px;
+    background-color: rgb(129, 129, 129);
+    border-radius: 15px;
+    border-width: 4px;
+    border-style: outset;
+    border-color: rgb(51, 51, 51);
+}
+
+.downloadImageDialog h1{
+    color: white;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 23px;
+    text-align: center;
+}
+
+.downloadImageDialog div{
+    display: flex;
+    justify-content: space-around;
+}
+
+.downloadImageDialog div a{
+    text-decoration: none;
+    width: 150px;
+    height: 70px;
+    padding-inline: 10px;
+    background-color: rgb(43, 43, 43);
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    display:grid;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    color: white;
+    border-radius: 5px;
+    outline: none;
+    cursor: pointer;
+    transition: all 0.5s;
+}
+
+.dialogNewImage:hover{
+    background-color: rgba(141, 141, 141, 0.418);
+
+}
+
+.leftContainer{
+    height: 780px;
+    background-color: rgb(63, 63, 63);
+    width: 60px;
+    text-align: center;
+}
+
+.leftContainer div img{
+    width: 60%;
+    cursor: pointer;
+    box-shadow: 3px 3px 3px rgb(34, 34, 34);
+}
+
+
+/*campo da direita*/
+
+.rightContainer{
+    height: 780px;
+    background-color: rgb(63, 63, 63);
+    width: 300px;
+}
+
+.filters section{
+    padding: 20px;
+}
+
+.filters section div{
+    margin-block: 15px;
+}
+
+.filters > summary{
+    margin-left: 5px;
+    margin-top: 10px;
+    width: 91%;
+    padding:10px;
+    list-style-type: none;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 20px;
+    color: rgb(197, 197, 197);
+    cursor: pointer;
+    box-shadow: 0px 3px 5px black;
+    transition: all 0.5s;
+}
+
+.filter > summary:hover{
+    background-color: rgba(0, 0, 0, 0.418);
+}
+
+.filters_{
+    width: 80%;
+}
+
+.filters_::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    box-shadow: 1px 1px 1px #000000;
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    cursor: pointer;
+    -webkit-appearance: none;
+}
+
+.titles{
+    color: white;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 20px;
+    text-shadow: 5px 5px 5px black;
+}
+
+section.persFilters{
+    display:flex;
+    justify-content: space-between;
+    color: white;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 20px;
+}
+
+aside.persFilters div button{
+    width: 100px;
+    height: 40px;
+    padding-inline: 3px;
+    background-color: rgb(43, 43, 43);
+    color: white;
+    border-radius: 5px;
+    outline: none;
+    cursor: pointer;
+    transition: all 0.5s;
+}
+
+aside.persFilters div button:hover{
+    background-color: #818181;
+}
+
+aside.persFilters input[type="color"]{
+    -webkit-appearance: none;
+    width: 60px;
+    height: 60px;
+    padding-inline: 3px;
+    background-color: rgb(43, 43, 43);
+    border-radius: 5px;
+    outline: none;
+    cursor: pointer;
+    transition: all 0.5s;
+	border: none;
+}
+
+#download{
+    text-decoration: none;
+    position: fixed;
+    z-index: 999;
+    left: 100px;
+    top: 610px;
+    width: 100px;
+    height: 40px;
+    padding: 13px;
+    color: white;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 20px;
+    background-color: rgb(43, 43, 43);
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    outline: none;
+    cursor:pointer;
+    transition: all 0.5s;
+    visibility: hidden;
+}
+
+#download:hover{
+    background-color: #818181;
+}
+
+.fore{
+    z-index:999;
+    position:absolute;
+    background-color: rgba(0, 0, 255, 0.329);
+}
+
+.mainImg{
+    z-index: 9999;
+    position: fixed;
+}
+
+.tgFunction{
+    background-color: gray;
+}
+
+.tgMove{
+    cursor: move;
+}
+
+.tgPaint{
+    cursor:crosshair;
+}
+
+.tgText{
+    cursor: text;
+}
+
+.downImg{
+    position: absolute;
+    top: 1000px;
+}
+
+.textField{
+    position: fixed;
+    z-index:999999;
+    background-color: transparent;
+    outline: none;
+    border-style: dotted;
+    font-size: 20px;
+}
+
+select.fontStyles{
+    width: 200px;
+    text-align: center;
+    outline: none;
+    padding: 5px;
+    margin-top: 8px;
+    background-color: rgb(43, 43, 43);
+    font-size: 20px;
+    color: white;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    border-radius: 10px;
+    border-width: 2px;
+    border-style:solid;
+    border-color: black;
+    cursor: pointer;
+}
