@@ -356,7 +356,11 @@ addEventListener('click',function(){
     }
     var con = document.getElementById('mainImg')
     if ((! document.getElementById('mainImg').classList.contains('tgPaint') )){
-        updateCanvas();
+        try{
+            updateCanvas();
+        }catch(e){
+            alert('link não suportado! Atualize a página e utilize outro link')
+        }
     }
     img.crossOrigin = 'Anonymous'
     var im1 = document.getElementById('mainImg').toDataURL('image/png');
