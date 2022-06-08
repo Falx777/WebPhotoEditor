@@ -1,5 +1,5 @@
 var img = new Image()
-var context, prop = wid = 0, isMoving =false, widths, heights, color, hasMask = false, hei, widCut, heiCut, wid0, hei0, initWid = initHei = 0, wheelValue = 0
+var context, prop = wid = 0, isMoving =false, widths, heights, color, hasMask = false, hei, widCut, heiCut, wid0, hei0, initWid = 0, initHei = 0, wheelValue = 0
 var dialogNewImageHTML = "<h1>Inserir nova Imagem</h1> <input name='image' type='url' id='insertFile2' accept='.jpg, .png, .jpeg' placeholder='Inserir URL Imagem' required> <button class='btnImage' type='submit' onclick=\"submitImg('insertFile2')\">Carregar</button>"
 var dialogDownloadHTML = "<h1>Escolha o tamanho da imagem:</h1> <div> <label for='orig' id='sizeOrig'>¬</label> <label for='prog' id='sizeProg'>(965x540)</label> </div> <div> <a id='downloadOriginal' name='orig' download>Original</a> <a id='downloadTela' name='prog' download>Tela Programa <b>Recomendado</b></a> </div>"
 var context2, colorPaint='rgb(0,0,0)' , sizePaint = 5, oldSize, txtInp, txtX, txtY, txtX2, txtY2, isTexting = false, colorText='rgb(0,0,0)', sizeText = 18, fontStyle;
