@@ -258,7 +258,8 @@ function adapt_size(){
     var downHei = (downProp >=1) ? initHei : initHei;
     document.getElementById('downImg').width = initWid;
     document.getElementById('downImg').height = initHei;
-    var downWidths = (downProp >=1) ? (widths) : 0;
+    //last alt
+    var downWidths = (downProp >=1) ? (0) : 0;
     var downHeights = (downProp >=1) ? (heights) : 0;
     //maskImg(2)
     if ((! document.getElementById('mainImg').classList.contains('tgPaint') )){
